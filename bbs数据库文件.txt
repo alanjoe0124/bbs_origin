@@ -1,0 +1,51 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.9.2
+-- http://www.phpmyadmin.net
+--
+-- 主机: 127.0.0.1:3306
+-- 生成日期: 2015 年 04 月 02 日 08:11
+-- 服务器版本: 5.1.28
+-- PHP 版本: 5.2.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- 数据库: `test`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `bbs`
+--
+
+CREATE TABLE IF NOT EXISTS `bbs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `title` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `content` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `menu` int(11) NOT NULL,
+  `parent` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `menuFK` (`menu`),
+  KEY `ixname` (`name`),
+  FULLTEXT KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=439 ;
+
+--
+-- 导出表中的数据 `bbs`
+--
+
+INSERT INTO `bbs` (`id`, `name`, `time`, `title`, `content`, `menu`, `parent`) VALUES
+(86, 'a', '2015-02-02 12:07:47', '32', '323', 1, 0),
+(87, 'a', '2015-02-02 12:07:50', '44', '44', 1, 0),
+(88, '', '2015-02-28 09:11:56', '', 'ttt', 0, 87),
+(89, 'diudiu', '2015-02-02 21:26:35', 'ssss', 'sss', 1, 0),
+(90, 'diudiu', '2015-02-02 21:26:43', 'wertwert', 'wertwert', 1, 0),
+(91, 'diudiu', '2015-02-02 21:27:09', 'sss', 'ffff', 2, 0),
+(92, 'diudiu', '2015-02-02 21:27:19', '', 'ffff', 0, 91),
+(98, 'lll', '2015-03-05 18:52:03', '', '', 0, 0),
+(436, '', '2015-03-25 16:30:29', '', '123', 0, 90),
+(437, 'll', '2015-03-25 16:31:51', 'play', '7867', 1, 0),
+(438, '123', '2015-03-27 13:19:19', '12123', '1111', 1, 0);
